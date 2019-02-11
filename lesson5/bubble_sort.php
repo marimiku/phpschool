@@ -15,4 +15,4 @@ function bubble_sort($a)
 }
 
 $a = [100, 7, 9, 468, -456, 56, 13, 6, -6];
-json_encode(bubble_sort($a));
+print_r(bubble_sort($a));
