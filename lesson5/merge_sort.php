@@ -17,7 +17,7 @@ function merge(&$A, $p, $q, $r)
         $R[$j] = $A[$q + $j];
     }
 
-    $L[$n1 + 1] = $R[$n2 + 1] = 100000000;
+    $L[$n1 + 1] = $R[$n2 + 1] = -PHP_INT_MAX;
     $i = $j = 1;
 
     for ($k = $p; $k <= $r; $k++) {
