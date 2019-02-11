@@ -17,11 +17,11 @@ function merge(&$A, $p, $q, $r)
         $R[$j] = $A[$q + $j];
     }
 
-    $L[$n1 + 1] = $R[$n2 + 1] = -PHP_INT_MAX;
+    $L[$n1 + 1] = $R[$n2 + 1] = 10000000;
     $i = $j = 1;
 
     for ($k = $p; $k <= $r; $k++) {
-        if ($L[$i] > $R[$j]) {
+        if ($L[$i] < $R[$j]) {
             $A[$k] = $L[$i];
             $i++;
         } else {
