@@ -1,5 +1,12 @@
 <?php
-require_once __DIR__.'\Student.php';
+require_once __DIR__ . '\Student.php';
+
+function studentArrayToString($studentArray)
+{
+    foreach ($studentArray as $student) {
+        echo $student;
+    }
+}
 
 $studentList = [new Student('Mike', 'Barnes', 0, 'freshman', 4),
     new Student('Jim', 'Nickerson', 0, 'sophomore', 3),
@@ -10,12 +17,12 @@ $studentList = [new Student('Mike', 'Barnes', 0, 'freshman', 4),
 $studyTimer = [60, 100, 40, 300, 1000];
 
 echo "Initial data:\n\n";
-foreach ($studentList as $student) {
-    $student->showMyself();
+studentArrayToString($studentList);
+
+echo "\nUpdating data...\n\n";
+foreach ($studentList as $key => $student) {
+    $student($studyTimer[$key]);
 }
 
-echo "\nUpdated data:\n\n";
-foreach ($studentList as $key => $student) {
-    $student->studyTime($studyTimer[$key]);
-    $student->showMyself();
-}
+echo "Updated data:\n\n";
+studentArrayToString($studentList);

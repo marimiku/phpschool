@@ -58,9 +58,9 @@ class Student
         }
     }
 
-    public function showMyself()
+    public function __toString()
     {
-        echo "First name: {$this->firstName}" . PHP_EOL . "Last name: {$this->lastName}" . PHP_EOL .
+        return "First name: {$this->firstName}" . PHP_EOL . "Last name: {$this->lastName}" . PHP_EOL .
             "Gender: {$this->gender}" . PHP_EOL . "Status: {$this->status}" . PHP_EOL . "GPA: {$this->gpa}\n\n";
     }
 
@@ -77,6 +77,11 @@ class Student
             echo $e->getMessage();
             exit();
         }
+    }
+
+    public function __invoke($study_time)
+    {
+        $this->studyTime($study_time);
     }
 }
 
