@@ -80,7 +80,3 @@ class Student
     }
 }
 
-$jHarrison = new Student('Julia', 'Harrison', 'female', 2, 2.3);
-$jHarrison->showMyself();
-$jHarrison->studyTime(4);
-$jHarrison->showMyself();
