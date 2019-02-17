@@ -6,51 +6,55 @@ class Student
     private $lastName;
     private $gender;
     private $status;
-    private $gpa = 0.0;
+    private $gpa;
 
-    public function __construct($firstName, $lastName, $gender, $status)
+    public function __construct($firstName, $lastName, $gender, $status, $gpa = 0.0)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-        $this->isValidGender($gender);
-        $this->isValidStatus($status);
-    }
-
-    private function isValidGender($gender)
-    {
         try {
-            if ($gender === 0 || strcmp($gender, 'male') == 0) {
-                $this->gender = 'male';
-            } elseif
-            ($gender === 1 || strcmp($gender, 'female') == 0) {
-                $this->gender = 'female';
-            } else {
-                throw new Exception('Error: wrong gender value.');
-            }
-        } catch
-        (Exception $e) {
+            $this->isValidGender($gender);
+            $this->isValidStatus($status);
+            $this->isValidGpa($gpa);
+        } catch (Exception $e) {
             echo $e->getMessage();
             exit();
         }
     }
 
+    private function isValidGender($gender)
+    {
+        if ($gender === 0 || strcmp($gender, 'male') == 0) {
+            $this->gender = 'male';
+        } elseif
+        ($gender === 1 || strcmp($gender, 'female') == 0) {
+            $this->gender = 'female';
+        } else {
+            throw new Exception('Error: wrong gender value.');
+        }
+    }
+
     private function isValidStatus($status)
     {
-        try {
-            if ($status === 1 || strcmp($status, 'freshman') == 0) {
-                $this->status = 'freshman';
-            } elseif ($status === 2 || strcmp($status, 'sophomore') == 0) {
-                $this->status = 'sophomore';
-            } elseif ($status === 3 || strcmp($status, 'junior') == 0) {
-                $this->status = 'junior';
-            } elseif ($status === 4 || strcmp($status, 'senior') == 0) {
-                $this->status = 'senior';
-            } else {
-                throw new Exception('Error: wrong status value.');
-            }
-        } catch (Exception $e) {
-            echo $e->getMessage();
-            exit();
+        if ($status === 1 || strcmp($status, 'freshman') == 0) {
+            $this->status = 'freshman';
+        } elseif ($status === 2 || strcmp($status, 'sophomore') == 0) {
+            $this->status = 'sophomore';
+        } elseif ($status === 3 || strcmp($status, 'junior') == 0) {
+            $this->status = 'junior';
+        } elseif ($status === 4 || strcmp($status, 'senior') == 0) {
+            $this->status = 'senior';
+        } else {
+            throw new Exception('Error: wrong status value.');
+        }
+    }
+
+    private function isValidGpa($gpa)
+    {
+        if (is_numeric($gpa)) {
+            ($gpa < 4) ? $this->gpa = round($gpa, 2) : $this->gpa = 4.0;
+        } else {
+            throw new Exception('Error: wrong GPA value.');
         }
     }
 
@@ -76,7 +80,7 @@ class Student
     }
 }
 
-$t = new Student('Julia', 'Harrison', 'female', 2);
-$t->showMyself();
-$t->studyTime(4);
-$t->showMyself();
+$jHarrison = new Student('Julia', 'Harrison', 'female', 2, 2.3);
+$jHarrison->showMyself();
+$jHarrison->studyTime(4);
+$jHarrison->showMyself();
