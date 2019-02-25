@@ -34,4 +34,4 @@ function F($string)
     }
 }
 
-echo F('(<{)') ? 'This brackets sequence is correct.' : 'This brackets sequence is INcorrect.';
+echo F('(<{}') ? 'This brackets sequence is correct.' : 'This brackets sequence is INcorrect.';

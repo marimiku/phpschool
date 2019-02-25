@@ -17,4 +17,4 @@ function fibonacci2($number)
     return ($number > 0) ? fibonacci($number) : -fibonacci(-$number);
 }
 
-echo fibonacci2(9);
+echo fibonacci2(6);
