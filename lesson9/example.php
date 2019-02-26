@@ -10,4 +10,6 @@ $linkedList->prepend(0);
 $linkedList->deleteFirst();
 $linkedList->deleteLast();
 $linkedList->append(6);
+$linkedList->append(6);
 $linkedList->searchByValue(6);
+$linkedList->searchByValue(10);

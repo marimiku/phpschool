@@ -108,21 +108,22 @@ class LinkedList
 
     public function searchByValue($value)
     {
+        $result = '';
         if (empty($this->head)) {
-            echo "\nList is empty, nothing to search.\n";
+            $result = $result . "\nList is empty, nothing to search.\n";
         } else {
-            echo "Searching result:\n";
             $potentialLastNode = $this->head;
             while (!empty($potentialLastNode->getNext())) {
                 if ($potentialLastNode->getValue() == $value) {
-                    echo $potentialLastNode;
+                    $result = $result . $potentialLastNode;
                 }
                 $potentialLastNode = $potentialLastNode->getNext();
             }
 
             if ($potentialLastNode->getValue() == $value)
-                echo $potentialLastNode;
+                $result = $result . $potentialLastNode;
         }
+        echo empty($result) ? "\nNo matches found.\n" : "Searching result:\n" . $result;
     }
 
     public function __toString()
