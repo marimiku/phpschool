@@ -101,8 +101,8 @@ class LinkedList
         if (empty($this->head) || empty($this->head->getNext())) {
             $this->deleteFirst();
         } else {
-            $node->getPrevious()->setNext($node->getNext);
-            $node->getNext()->setPrevious($node->getPrevious);
+            empty($node->getPrevious()) ? $this->deleteFirst() : $node->getPrevious()->setNext($node->getNext());
+            empty($node->getNext()) ? $this->deleteLast() : $node->getNext()->setPrevious($node->getPrevious());
         }
     }
 
@@ -139,5 +139,38 @@ class LinkedList
         }
         return $result . $potentialLastNode;
     }
+
+    /**
+     * @return null
+     */
+    public function getHead()
+    {
+        return $this->head;
+    }
+
+    /**
+     * @param null $head
+     */
+    public function setHead($head)
+    {
+        $this->head = $head;
+    }
+
+    /**
+     * @return null
+     */
+    public function getTail()
+    {
+        return $this->tail;
+    }
+
+    /**
+     * @param null $tail
+     */
+    public function setTail($tail)
+    {
+        $this->tail = $tail;
+    }
+
 
 }
