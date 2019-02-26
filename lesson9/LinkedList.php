@@ -140,33 +140,21 @@ class LinkedList
         return $result . $potentialLastNode;
     }
 
-    /**
-     * @return null
-     */
     public function getHead()
     {
         return $this->head;
     }
 
-    /**
-     * @param null $head
-     */
     public function setHead($head)
     {
         $this->head = $head;
     }
 
-    /**
-     * @return null
-     */
     public function getTail()
     {
         return $this->tail;
     }
 
-    /**
-     * @param null $tail
-     */
     public function setTail($tail)
     {
         $this->tail = $tail;
