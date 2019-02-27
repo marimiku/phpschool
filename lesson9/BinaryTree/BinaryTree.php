@@ -43,7 +43,36 @@ class BinaryTree
             }
         }
     }
-    
+
+    public function search($value)
+    {
+        if (empty($this->root)) {
+            echo "\nNo matches found";
+            return null;
+        }
+        while (1) {
+            if ($this->currentNode->getValue() === $value) {
+                echo "\n\nMatch found!";
+                return $this->currentNode;
+            }
+            if (!$this->isLess($value)) {
+                if ($this->currentNode->leftIsFull()) {
+                    $this->currentNode = $this->currentNode->getLeft();
+                } else {
+                    echo "\nNo matches found";
+                    return null;
+                }
+            } else {
+                if ($this->currentNode->rightIsFull()) {
+                    $this->currentNode = $this->currentNode->getRight();
+                } else {
+                    echo "\nNo matches found";
+                    return null;
+                }
+            }
+        }
+    }
+
     private function isLess($value)
     {
         return ($this->currentNode->getValue() < $value);
